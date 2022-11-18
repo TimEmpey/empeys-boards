@@ -8,15 +8,15 @@ function BoardForm(props) {
             <form onSubmit={props.formSubmissionHandler}>
                 <input
                     type='text'
-                    terrain='terrain'
+                    name='terrain'
                     placeholder='Board Terrain' />
                 <input
                     type='number'
-                    terrain='price'
+                    name='price'
                     placeholder='Price' />
                 <input
                     type='number'
-                    terrain='quantity'
+                    name='quantity'
                     placeholder='# of stock' />
                     <button type='submit'>{props.buttonText}</button>
             </form>
