@@ -7,7 +7,8 @@ function Details(props) {
     return (
         <React.Fragment>
             <h1>Board Details</h1>
-            <h3>{board.style} - {board.price}</h3>
+            <h3>{board.terrain} - Price: ${board.price}</h3>
+            <p><em>Quantity: {board.quantity}</em></p>
             <button onClick={ props.onClickingEdit }>Update Board Group</button> 
             <button onClick={()=> onClickingDelete(board.id) }>Delete Board Group</button>
             <hr/>

@@ -24,7 +24,7 @@ handleAddingNewBoardToList = (newBoard) => {
 
 handleClick = () => {
     if(this.state.selectedBoard != null){
-        this.state({
+        this.setState({
             formVisibleOnPage: false,
             selectedBoard: null,
             editing: false
@@ -43,7 +43,7 @@ handleEditClick = () => {
 
 handleChangingSelectedBoard = (id) => {
     const selectedBoard = this.state.mainBoardList.filter(board => board.id === id)[0];
-    this.setState({selectedTicket: selectedBoard});
+    this.setState({selectedBoard: selectedBoard});
 }
 
 handleDeletingBoard = (id) => {

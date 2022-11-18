@@ -6,6 +6,7 @@ function Board(props){
         <React.Fragment>
             <div onClick = {() => props.whenBoardClicked(props.id)}>
                 <h3>{props.terrain}  - ${props.price}</h3>
+                <p><em>{props.quantity}</em></p>
                 <hr/>
             </div>
         </React.Fragment>
@@ -16,6 +17,7 @@ Board.propTypes = {
     terrain: PropTypes.string.isRequired,
     boards: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
     id: PropTypes.string,
     whenBoardClicked: PropTypes.func
 };
