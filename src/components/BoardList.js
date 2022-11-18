@@ -49,7 +49,7 @@ function AvailableBoards(props) {
 
 mainBoardList.propTypes = {
     mainBoardList: PropTypes.array,
-    onBoardSelection: propTypes.func
+    onBoardSelection: PropTypes.func
 };
 
 export default AvailableBoards;

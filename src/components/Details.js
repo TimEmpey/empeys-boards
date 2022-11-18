@@ -8,14 +8,8 @@ function Details(props) {
         <React.Fragment>
             <h1>Board Details</h1>
             <h3>{board.style} - {board.price}</h3>
-            {board.selection.map(selection => {
-                return (
-                    <div>
-                        <p>{selection}</p> 
-                    </div>    
-                )})}
-            <button onClick={ props.onClickingEdit }>Update Group</button> 
-            <button onClick={()=> onClickingDelete(board.id) }>Delete Group</button>
+            <button onClick={ props.onClickingEdit }>Update Board Group</button> 
+            <button onClick={()=> onClickingDelete(board.id) }>Delete Board Group</button>
             <hr/>
         </React.Fragment>
 )}

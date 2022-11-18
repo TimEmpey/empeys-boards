@@ -7,9 +7,17 @@ class SiteControl extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-        formVisibleOnPage: true,
-        selectedBoard: null
+            boardList: [],
+            formVisibleOnPage: false,
+            editing: false,
+            selectedBoard: null
     };
+}
+
+handleAddingNewBoardToList = (newBoard) => {
+    const newBoardList = this.state.BoardList.concat(newBoard);
+    this.setState({BoardList: newBoardList,
+        formVisibleOnPage: false });
 }
 
 handleClick = () => {
@@ -17,7 +25,7 @@ handleClick = () => {
         this.state({
             formVisibleOnPage: false,
             selectedBoard: null,
-            editing: false,
+            editing: false
         });
         } else{
             this.setState(prevState => ({
@@ -36,24 +44,58 @@ handleChangingSelectedBoard = (id) => {
     this.setState({selectedTicket: selectedBoard});
 }
 
-render() {
+handleDeletingBoard = (id) => {
+    const newBoardList = this.state.boardList.filter(board => board.id !== id);
+    this.setState({
+    boardList: newBoardList,
+    selectedBoard: null
+    });
+}
+
+handleEditingBoardInList = (boardToEdit) => {
+    const editedBoardList = this.state.boardList
+    .filter(board => board.id !== this.state.selectedBoard.id)
+    .concat(boardToEdit);
+    this.setState({
+        mainBoardList: editedBoardList,
+        editing: false,
+        selectedBoard: null
+    });
+}
+
+render(){
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.formVisibleOnPage) {
-        currentlyVisibleState = <AvailableBoards />
-        buttonText = "placeholder";
-    } else if (this.state.selectedBoard != null){
-        currentlyVisibleState = <Details 
+    if (this.state.editing ) {      
+        currentlyVisibleState = 
+    <EditBoard
+        board = {this.state.selectedBoard} 
+        onEditBoard = {this.handleEditingBoardInList}/>
+        buttonText = "Return to Board List";
+    } else if (this.state.selectedBoard != null) {
+        currentlyVisibleState = 
+    <Details 
         board = {this.state.selectedBoard} 
         onClickingDelete = {this.handleDeletingBoard} 
-        onClickingEdit = {this.handleEditClick}/>
-        buttonText = "All Boards";
+        onClickingEdit = {this.handleEditClick} />
+        buttonText="Return to Board List"
+    } else if (this.state.formVisibleOnPage) {
+        currentlyVisibleState = 
+    <NewBoard 
+        onNewBoardCreation={this.handleAddingNewBoardToList} />
+        buttonText= "Return to Board List";
+    } else {
+        currentlyVisibleState = 
+    <BoardList
+        boardList = {this.state.BoardList} 
+        onBoardSelection = {this.handleChangingSelectedBoard} />
+        buttonText= 'Add Board';
     }
-    return (
-        <React.Fragment>
-            {currentlyVisibleState}
-            <button onClick={this.handleClick}>{buttonText}</button>
-        </React.Fragment>
+    return(
+    <React.Fragment>
+        {currentlyVisibleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
+    </React.Fragment>
     );
 }}
 
