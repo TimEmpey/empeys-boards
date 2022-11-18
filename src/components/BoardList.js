@@ -4,6 +4,7 @@ import Board from "./Boards";
 const mainBoardList = [
     {
         terrain: "All Mountain",
+        price: "$600",
         selection: [
             "Good Company Camber",
             "Custom X Flying V",
@@ -12,6 +13,7 @@ const mainBoardList = [
     },
     {
         terrain: "Terrain Park",
+        price: "$450",
         selection: [
             "Blossom Camber",
             "Name Dropper",
@@ -20,6 +22,7 @@ const mainBoardList = [
     },
     {
         terrain: "Powder",
+        price: "$400",
         selection: [
             "Tree Hometown Powder",
             "Tree 3D Daily",
@@ -34,14 +37,7 @@ function AvailableBoards() {
             {mainBoardList.map(terrain => {
                 return (
                 <div>
-                    <h2>{terrain.terrain}</h2>
-                    {terrain.selection.map(selection => {
-                        return (
-                            <div>
-                            <p>{selection}</p> 
-                            </div>                                          
-                        )
-                    })}
+                    <h2>{terrain.terrain} - {terrain.price}</h2>      
                 </div>
             )
         })}

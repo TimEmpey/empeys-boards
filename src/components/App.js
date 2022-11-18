@@ -1,4 +1,4 @@
-import './App.css';
+import React from 'react';
 import Header from "./Header";
 import SiteControl from './SiteControl';
 
@@ -6,7 +6,7 @@ import SiteControl from './SiteControl';
     return (
       <React.Fragment>
         <Header />
-        <TicketControl />
+        <SiteControl />
       </React.Fragment>
     );
   }
