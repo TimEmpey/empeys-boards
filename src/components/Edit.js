@@ -1,5 +1,5 @@
 import React from "react";
-import ReusableBoardForm from "./ReusableBoardForm";
+import ReusableBoardForm from "./BoardForm";
 import PropTypes from "prop-types";
 
 function EditBoard (props) {

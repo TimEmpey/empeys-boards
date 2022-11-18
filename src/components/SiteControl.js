@@ -1,13 +1,15 @@
 import React from 'react';
-import AvailableBoards from "./BoardList";
+import BoardList from "./BoardList";
 import Details from "./Details";
+import EditBoard from "./Edit";
+import NewBoard from "./NewBoard";
 
 class SiteControl extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            boardList: [],
+            mainBoardList: [],
             formVisibleOnPage: false,
             editing: false,
             selectedBoard: null
@@ -15,8 +17,8 @@ class SiteControl extends React.Component {
 }
 
 handleAddingNewBoardToList = (newBoard) => {
-    const newBoardList = this.state.BoardList.concat(newBoard);
-    this.setState({BoardList: newBoardList,
+    const newMainBoardList = this.state.mainBoardList.concat(newBoard);
+    this.setState({mainBoardList: newMainBoardList,
         formVisibleOnPage: false });
 }
 
@@ -45,19 +47,19 @@ handleChangingSelectedBoard = (id) => {
 }
 
 handleDeletingBoard = (id) => {
-    const newBoardList = this.state.boardList.filter(board => board.id !== id);
+    const newMainBoardList = this.state.mainBoardList.filter(board => board.id !== id);
     this.setState({
-    boardList: newBoardList,
+    mainBoardList: newMainBoardList,
     selectedBoard: null
     });
 }
 
 handleEditingBoardInList = (boardToEdit) => {
-    const editedBoardList = this.state.boardList
+    const editedMainBoardList = this.state.mainBoardList
     .filter(board => board.id !== this.state.selectedBoard.id)
     .concat(boardToEdit);
     this.setState({
-        mainBoardList: editedBoardList,
+        mainBoardList: editedMainBoardList,
         editing: false,
         selectedBoard: null
     });
@@ -81,13 +83,13 @@ render(){
         buttonText="Return to Board List"
     } else if (this.state.formVisibleOnPage) {
         currentlyVisibleState = 
-    <NewBoard 
+    <NewBoard
         onNewBoardCreation={this.handleAddingNewBoardToList} />
         buttonText= "Return to Board List";
     } else {
         currentlyVisibleState = 
     <BoardList
-        boardList = {this.state.BoardList} 
+        boardList = {this.state.mainBoardList} 
         onBoardSelection = {this.handleChangingSelectedBoard} />
         buttonText= 'Add Board';
     }

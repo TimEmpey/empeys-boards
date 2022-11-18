@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Board from "./Boards";
 
-const mainBoardList = [
+const originalList = [
     {
         terrain: "All Mountain",
         price: "$600",
@@ -32,10 +32,10 @@ const mainBoardList = [
     }
 ];
 
-function AvailableBoards(props) {
+function BoardList(props) {
     return (
         <React.Fragment>
-            {props.mainBoardList.map((board) => 
+            {props.boardList.map((board) => 
             <Board
             whenBoardClicked={props.onBoardSelection}
             terrain = {board.terrain}
@@ -47,9 +47,9 @@ function AvailableBoards(props) {
     );
 }
 
-mainBoardList.propTypes = {
-    mainBoardList: PropTypes.array,
+BoardList.propTypes = {
+    boardList: PropTypes.array,
     onBoardSelection: PropTypes.func
 };
 
-export default AvailableBoards;
+export default BoardList;
