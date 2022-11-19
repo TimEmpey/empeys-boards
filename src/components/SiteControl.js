@@ -54,6 +54,22 @@ handleDeletingBoard = (id) => {
     });
 }
 
+handleSellingBoard = (id) => {
+    let boardToEdit = this.state.mainBoardList.filter(board => board.id === id)[0];
+    if(boardToEdit.quantity === 0){
+        boardToEdit.quantity = 0;
+    } else {
+        boardToEdit.quantity--;
+        const editedMainBoardList = this.state.mainBoardList
+            .filter(board => board.id !== id)
+            .concat(boardToEdit);
+        this.setState({
+            mainBoardList: editedMainBoardList.sort((a, b) => a.terrain.localeCompare(b.name))
+        });        
+    }
+
+}
+
 handleEditingBoardInList = (boardToEdit) => {
     const editedMainBoardList = this.state.mainBoardList
     .filter(board => board.id !== this.state.selectedBoard.id)
@@ -64,6 +80,7 @@ handleEditingBoardInList = (boardToEdit) => {
         selectedBoard: null
     });
 }
+
 
 render(){
     let currentlyVisibleState = null;
@@ -79,7 +96,8 @@ render(){
     <Details 
         board = {this.state.selectedBoard} 
         onClickingDelete = {this.handleDeletingBoard} 
-        onClickingEdit = {this.handleEditClick} />
+        onClickingEdit = {this.handleEditClick} 
+        onClickingSell = {this.handleSellingBoard}/>
         buttonText="Return to Board List"
     } else if (this.state.formVisibleOnPage) {
         currentlyVisibleState = 

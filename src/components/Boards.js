@@ -6,7 +6,6 @@ function Board(props){
         <React.Fragment>
             <div onClick = {() => props.whenBoardClicked(props.id)}>
                 <h3>{props.terrain}  - ${props.price}</h3>
-                <p><em>{props.quantity}</em></p>
                 <hr/>
             </div>
         </React.Fragment>
