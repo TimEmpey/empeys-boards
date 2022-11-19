@@ -1,3 +1,24 @@
+#### By _**Tim Empey**_
+
+#### _React app that allows user to create a list of snowboard which they can view quantity, price, and terrains of. There is full CRUD functionality with create, edit, and delete being options._
+
+![Diagram of layout](./src/img/empeys-boards.png?raw=true"Diagram")
+# _{Application Name}_
+
+## Technologies Used
+
+* _JavaScript_
+*  _React_
+* _JSX_
+*  _CSS_
+* _Webpack_
+
+## Description
+
+_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
+
+## Setup/Installation Requirements
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +89,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Known Bugs
+
+* _No known bugs_
+
+## License
+
+_[MIT](https://en.wikipedia.org/wiki/MIT_License)_
+
+Copyright (c) _2022_ _Timothy Empey_
+

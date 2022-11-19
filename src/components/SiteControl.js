@@ -67,7 +67,6 @@ handleSellingBoard = (id) => {
             mainBoardList: editedMainBoardList.sort((a, b) => a.terrain.localeCompare(b.name))
         });        
     }
-
 }
 
 handleEditingBoardInList = (boardToEdit) => {
