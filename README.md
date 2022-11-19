@@ -1,9 +1,10 @@
+# _Empeys Snowboards_
+
 #### By _**Tim Empey**_
 
 #### _React app that allows user to create a list of snowboard which they can view quantity, price, and terrains of. There is full CRUD functionality with create, edit, and delete being options._
 
 ![Diagram of layout](./src/img/empeys-boards.png?raw=true"Diagram")
-# _{Application Name}_
 
 ## Technologies Used
 
